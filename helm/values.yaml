@@ -1,0 +1,11 @@
+image: "sarkaramrit2/gatling-solr:latest"
+namespace: gatling
+replicas: 5
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512M
+  requests:
+    cpu: 200m
+    memory: 256M

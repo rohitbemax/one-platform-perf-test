@@ -1,2 +1,56 @@
+.DS_Store
+# Compiled class file
 *.class
+
+# Log file
 *.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+!gradle-wrapper.jar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+*~
+#*
+*#
+.#*
+.classpath
+.project
+.settings
+.springBeans
+.gradle
+build
+bin
+target/*
+project/*
+result/*
+git.properties
+.idea
+*.iml
+.factorypath
+
+.vscode
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+### Temp Test files ###
+**/test.xml
+**/test-workdir/**
+
+**/results/**
+**/target/**

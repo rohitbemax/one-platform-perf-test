@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: gatling-solr
+  namespace: {{ .Values.namespace }}
+spec:
+  selector:
+    matchLabels:
+      app: gatling-solr # has to match .spec.template.metadata.labels
+  serviceName: "gatling-solr"
+  replicas: {{ .Values.replicas }}
+  updateStrategy:
+    type: RollingUpdate
+  podManagementPolicy: Parallel
+  template:
+    metadata:
+      labels:
+        app: gatling-solr # has to match .spec.selector.matchLabels
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: gatling-solr
+          image: {{ .Values.image }}
+          ports:
+            - containerPort: 80
+              name: gatling-solr
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
