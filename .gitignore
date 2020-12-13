@@ -36,7 +36,8 @@ hs_err_pid*
 build
 bin
 target/*
-project/*
+#project/project/*
+#project/target/*
 result/*
 git.properties
 .idea
