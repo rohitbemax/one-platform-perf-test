@@ -55,7 +55,7 @@ RUN yum install -y wget bash unzip && \
 # copy libraries, simulations, config files and remove tmp directly
 RUN mkdir -p /opt/gatling/user-files/simulations/ && \
     mkdir -p /opt/gatling/user-files/configs/ && \
-    cp /tmp/downloads/gatling-solr/one-platform-perf-test/target/scala-2.12/gatling-solr-*.jar /opt/gatling/lib/ && \
+    #cp /tmp/downloads/gatling-solr/one-platform-perf-test/target/scala-2.12/gatling-solr-*.jar /opt/gatling/lib/ && \
     cp /tmp/downloads/gatling-solr/one-platform-perf-test/src/test/scala/* /opt/gatling/user-files/simulations/ && \
     rm -rf /opt/gatling/user-files/simulations/computerdatabase && \
     cp /tmp/downloads/gatling-solr/one-platform-perf-test/src/test/resources/configs/* /opt/gatling/user-files/configs/ && \
