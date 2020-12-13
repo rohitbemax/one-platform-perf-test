@@ -12,7 +12,7 @@ if [ ! -z "${CID}" ]; then
     docker container rm ${CID}
 fi
 
-# remove all gatling solr dockers
+# remove all gatling docker images
 IMG_ID=`docker images -a | grep "kubectl-support" | awk '{print $3}'`
 if [ ! -z "${IMG_ID}" ]; then
     docker rmi -f ${IMG_ID}
