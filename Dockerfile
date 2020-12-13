@@ -10,7 +10,7 @@ ENV GATLING_VERSION=3.0.0 \
     SOLR_VERSION=8.4.1 \
     SCALA_VERSION=2.12.7 \
     SBT_VERSION=1.2.1 \
-    GATLING_SOLR_BRANCH=master
+    GATLING_SOLR_BRANCH=main
 
 # Install Scala
 RUN \
@@ -35,8 +35,8 @@ RUN yum update && \
     yum install -y git && \
     mkdir -p /tmp/downloads/gatling-solr && \
     cd /tmp/downloads/gatling-solr && \
-    git clone https://github.com/sarkaramrit2/gatling-solr.git && \
-    cd /tmp/downloads/gatling-solr/gatling-solr && \
+    git clone https://github.com/rohitbemax/one-platform-perf-test.git && \
+    cd /tmp/downloads/gatling-solr/one-platform-perf-test && \
     git checkout $GATLING_SOLR_BRANCH && \
     sbt clean assembly && \
     # install ps
@@ -55,14 +55,14 @@ RUN yum install -y wget bash unzip && \
 # copy libraries, simulations, config files and remove tmp directly
 RUN mkdir -p /opt/gatling/user-files/simulations/ && \
     mkdir -p /opt/gatling/user-files/configs/ && \
-    cp /tmp/downloads/gatling-solr/gatling-solr/target/scala-2.12/gatling-solr-*.jar /opt/gatling/lib/ && \
-    cp /tmp/downloads/gatling-solr/gatling-solr/src/test/scala/* /opt/gatling/user-files/simulations/ && \
+    cp /tmp/downloads/gatling-solr/one-platform-perf-test/target/scala-2.12/gatling-solr-*.jar /opt/gatling/lib/ && \
+    cp /tmp/downloads/gatling-solr/one-platform-perf-test/src/test/scala/* /opt/gatling/user-files/simulations/ && \
     rm -rf /opt/gatling/user-files/simulations/computerdatabase && \
-    cp /tmp/downloads/gatling-solr/gatling-solr/src/test/resources/configs/* /opt/gatling/user-files/configs/ && \
-    cp -rf /tmp/downloads/gatling-solr/gatling-solr/src/test/resources/data /opt/gatling/user-files/ && \
-    cp /tmp/downloads/gatling-solr/gatling-solr/src/test/resources/gatling.conf /opt/gatling/conf/ && \
-    cp /tmp/downloads/gatling-solr/gatling-solr/src/test/resources/logback.xml /opt/gatling/conf/ && \
-    cp /tmp/downloads/gatling-solr/gatling-solr/src/test/resources/recorder.conf /opt/gatling/conf/ && \
+    cp /tmp/downloads/gatling-solr/one-platform-perf-test/src/test/resources/configs/* /opt/gatling/user-files/configs/ && \
+    cp -rf /tmp/downloads/gatling-solr/one-platform-perf-test/src/test/resources/data /opt/gatling/user-files/ && \
+    cp /tmp/downloads/gatling-solr/one-platform-perf-test/src/test/resources/gatling.conf /opt/gatling/conf/ && \
+    cp /tmp/downloads/gatling-solr/one-platform-perf-test/src/test/resources/logback.xml /opt/gatling/conf/ && \
+    cp /tmp/downloads/gatling-solr/one-platform-perf-test/src/test/resources/recorder.conf /opt/gatling/conf/ && \
     rm -rf /tmp/*
 
 ## copy large files to docker if present
