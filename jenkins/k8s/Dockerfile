@@ -13,14 +13,14 @@ RUN \
     echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && \
     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - && \
     apt-get update -y && apt-get install google-cloud-sdk kubectl -y && \
-    apt-get install wget -y && \
-    curl -sL https://aka.ms/InstallAzureCLIDeb |    bash && \
-    curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip" && \
-    unzip awscli-bundle.zip && \
-    ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws && \
-    rm -rf awscli-bundle* && \
-    curl --silent --location "https://github.com/weaveworks/eksctl/releases/download/latest_release/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp && \
-    mv /tmp/eksctl /usr/local/bin
+    apt-get install wget -y
+    #curl -sL https://aka.ms/InstallAzureCLIDeb |    bash && \
+    #curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip" && \
+    #unzip awscli-bundle.zip && \
+    #./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws && \
+    #rm -rf awscli-bundle* && \
+    #curl --silent --location "https://github.com/weaveworks/eksctl/releases/download/latest_release/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp && \
+    #mv /tmp/eksctl /usr/local/bin
 
 # install gatling
 RUN apt-get install wget bash && \
@@ -37,16 +37,4 @@ RUN apt-get install wget bash && \
 ENV PATH /opt/gatling/bin:/usr/local/sbin:/usr/bin/gcloud:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ENV GATLING_HOME /opt/gatling
 
-
-
-
-
-
-
-
-
-
-
-
-    
 CMD tail -f /dev/null
