@@ -34,7 +34,19 @@ RUN apt-get install wget bash && \
   rm -rf /tmp/*
 
 # set environment variables
-ENV PATH /opt/gatling/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ENV PATH /opt/gatling/bin:/usr/local/sbin:/usr/bin/gcloud:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ENV GATLING_HOME /opt/gatling
+
+
+
+
+
+
+
+
+
+
+
+
     
 CMD tail -f /dev/null
