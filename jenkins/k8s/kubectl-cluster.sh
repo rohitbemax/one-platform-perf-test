@@ -4,7 +4,7 @@ set -e
 set -x
 
 if [ "$GCP" = "GCP" ] ; then
-  docker run -it -d --rm --name kubectl-support sarkaramrit2/kubectl-support:latest
+  docker run -it -d --rm --name kubectl-support rohitbemax/gatling-solr:latest
 fi
 
 # set container id in which the docker is running
