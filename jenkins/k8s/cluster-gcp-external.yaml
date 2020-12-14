@@ -43,8 +43,7 @@ spec:
           value: solr
       containers:
       - name: gatlingsolr
-        #image: sarkaramrit2/gatling-solr:latest
-        image: rohitbemax/one-platform:latest
+        image: rohitbemax/gatling-solr:latest
         ports:
         - containerPort: 80
           name: gatlingsolr
