@@ -4,7 +4,7 @@ set -e
 set -x
 
 if [ "$GCP" = "GCP" ] ; then
-  docker run -it -d --rm --name kubectl-support rohitbemax/gatling-solr:latest
+  docker run -it -d --rm --name kubectl-support rohitbemax/kubectl-support:latest
 fi
 
 # set container id in which the docker is running
@@ -26,6 +26,7 @@ fi
 rm -rf ./GCP_KEY_FILE || echo "already deleted"
 
 if [ "$GCP" = "GCP" ] ; then
+  docker exec kubectl-support
   docker exec kubectl-support gcloud auth activate-service-account --key-file /opt/${GCP_KEY_FILE}
   docker exec kubectl-support gcloud config get-value core/account
   docker exec kubectl-support gcloud config set project ${GCP_K8_PROJECT}
